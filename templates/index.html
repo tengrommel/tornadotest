@@ -1,0 +1,37 @@
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#<head lang="en">#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1" />#}
+{#    <title>Learning Python</title>#}
+{#</head>#}
+{#<body>#}
+{#    <h2>登录页面</h2>#}
+{#    {% if user %}#}
+{#    <p>用户名为：{{user}}登录</p>#}
+{#    {% end %}#}
+{#    <form method="POST">#}
+{#        <p><span>Username:</span><input type="text" id="username"/></p>#}
+{#        <p><span>Password:</span><input type="password" id="password"/></p>#}
+{#        <p><input type="BUTTON" value="登录" id="login"/></p>#}
+{#    </form>#}
+{#    {% set website = "<a href='http://www.itdiffer.com'>welcome to my website</a>" %}#}
+{#    {% raw website %}#}
+{#    <script src="{{static_url('js/jquery.min.js')}}"></script>#}
+{#    <script src="{{static_url('js/script.js')}}"></script>#}
+{#</body>#}
+{#</html>#}
+
+{% extends "base.html" %}
+{% block header %}
+    <h2>登录页面</h2>
+    <p>用户名为：{{ user }}</p>
+{% end %}
+{% block body %}
+    <form method="post">
+        {% raw xsrf_form_html() %}
+        <p><span>UserName:</span><input type="text" id="username"/></p>
+        <p><span>Password:</span><input type="password" id="password" /></p>
+        <p><input type="BUTTON" value="登录" id="login" /></p>
+    </form>
+{% end %}
